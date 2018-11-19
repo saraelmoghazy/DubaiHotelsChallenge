@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import com.hotels.tajawal.dubaihotels.hotels.ui.HotelFragment
 
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

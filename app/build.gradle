@@ -4,6 +4,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 
 android {
@@ -55,4 +56,6 @@ dependencies {
     implementation "android.arch.lifecycle:extensions:1.1.1"
     implementation "android.arch.lifecycle:viewmodel:1.1.1"
     implementation 'com.android.support:cardview-v7:28.0.0'
+    kapt 'com.android.databinding:compiler:3.1.4'
+    kapt 'com.google.dagger:dagger-compiler:2.17'
 }

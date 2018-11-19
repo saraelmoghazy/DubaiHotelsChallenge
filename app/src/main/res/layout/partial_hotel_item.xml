@@ -42,7 +42,7 @@
 
             <ImageView
                 android:id="@+id/imageView10"
-                imageUrl="@{obj.image.url}"
+                imageUrl="@{obj.image[0].url}"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"

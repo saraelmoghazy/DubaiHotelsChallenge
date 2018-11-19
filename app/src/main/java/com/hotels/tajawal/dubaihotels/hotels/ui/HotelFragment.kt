@@ -14,7 +14,6 @@ import com.hotels.tajawal.dubaihotels.base.BaseFragment
 import com.hotels.tajawal.dubaihotels.databinding.HotelsFragmentBinding
 import com.hotels.tajawal.dubaihotels.hotels.model.Hotel
 
-
 /**
  * Created by Sara Elmoghazy on 19,November,2018
  */
