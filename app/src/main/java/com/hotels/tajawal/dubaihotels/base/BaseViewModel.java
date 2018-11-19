@@ -23,12 +23,10 @@ public class BaseViewModel extends ViewModel {
 
     private Map<Integer, BaseUseCase> useCases;
     private List<BaseUseCase> failedUseCasesList = new ArrayList<>();
-    private CompositeDisposable compositeDisposable;
     private final MutableLiveData<Boolean> isLoading = new MutableLiveData<>();
     private final MutableLiveData<RetrofitException> hasError = new MutableLiveData<>();
 
     public BaseViewModel() {
-        compositeDisposable = new CompositeDisposable();
         isLoading.setValue(false);
     }
 
@@ -95,10 +93,6 @@ public class BaseViewModel extends ViewModel {
         this.isLoading.setValue(isLoading);
     }
 
-    public CompositeDisposable getCompositeDisposable() {
-        return compositeDisposable;
-    }
-
     public void handleError(RetrofitException error, int id) {
         setIsLoading(false);
         //add to fail list
@@ -130,9 +124,4 @@ public class BaseViewModel extends ViewModel {
         return hasError;
     }
 
-    @Override
-    protected void onCleared() {
-        getCompositeDisposable().dispose();
-        super.onCleared();
-    }
 }

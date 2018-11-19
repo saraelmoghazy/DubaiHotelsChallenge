@@ -7,23 +7,48 @@
 
         <variable
             name="obj"
-            type="com.hotels.tajawal.dubaihotels.TestModel" />
+            type="com.hotels.tajawal.dubaihotels.hotels.model.Hotel" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/hotelLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context="com.hotels.tajawal.dubaihotels.MainActivity">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        app:cardUseCompatPadding="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_gray">
 
-    </android.support.constraint.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/textView7"
+                style="@style/HotelName"
+                android:layout_width="0dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:text="@{obj.summary.hotelName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10"
+                tools:text="Golden Tulip Al Barsha" />
+
+
+            <ImageView
+                android:id="@+id/imageView10"
+                imageUrl="@{obj.image.url}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v7.widget.CardView>
 
 </layout>

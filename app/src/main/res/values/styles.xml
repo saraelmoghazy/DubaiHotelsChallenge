@@ -29,4 +29,10 @@
         <item name="android:textColor">@color/colorPrimary</item>
     </style>
 
+    <style name="HotelName" parent="GeneralTextView">
+        <item name="android:textSize">@dimen/txt_body_small</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
 </resources>
