@@ -57,6 +57,7 @@ public class RxErrorHandlingCallAdapterFactory extends CallAdapter.Factory {
         private RetrofitException asRetrofitException(final Throwable throwable) {
             RetrofitException retrofitException;
             if (throwable instanceof HttpException) {
+                //TODO : parse errors bases on error messages.
                 retrofitException = getErrorMessage(throwable);
             } else if (throwable instanceof IOException) {
                 retrofitException = new RetrofitException(-1, throwable.getMessage(), ErrorType.NETWORK);
@@ -67,7 +68,7 @@ public class RxErrorHandlingCallAdapterFactory extends CallAdapter.Factory {
         }
 
         /**
-         * Get error message based on error resonse
+         * Get error message based on error response
          **/
         private RetrofitException getErrorMessage(Throwable throwable) {
             HttpException httpException = (HttpException) throwable;

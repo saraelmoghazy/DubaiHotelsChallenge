@@ -12,7 +12,6 @@ import io.reactivex.disposables.Disposable;
 
 public abstract class BaseFetchObserver<M> implements Observer<M> {
 
-    private final String TAG = this.getClass().getSimpleName();
     private WeakReference<BaseViewModel> baseViewModel;
     private CompositeDisposable disposables;
     private int id;
@@ -26,6 +25,7 @@ public abstract class BaseFetchObserver<M> implements Observer<M> {
         this.disposables = new CompositeDisposable();
         this.id = id;
     }
+
 
     @Override
     public void onError(Throwable exception) {

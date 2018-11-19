@@ -28,7 +28,6 @@ public class BaseViewModel extends ViewModel {
     private final MutableLiveData<RetrofitException> hasError = new MutableLiveData<>();
 
     public BaseViewModel() {
-        super();
         compositeDisposable = new CompositeDisposable();
         isLoading.setValue(false);
     }

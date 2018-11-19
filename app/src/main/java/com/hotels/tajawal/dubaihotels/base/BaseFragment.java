@@ -2,7 +2,6 @@ package com.hotels.tajawal.dubaihotels.base;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.graphics.drawable.ColorDrawable;
@@ -140,6 +139,7 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
     }
 
     public void handleError(RetrofitException error) {
+        //TODO: handle different error cases.
         TajawalErrorView.Builder builder = new TajawalErrorView.Builder()
                 .retryClickListener(view -> tryAgain()).msg(error.getMessage());
         if (getmContext() != null)

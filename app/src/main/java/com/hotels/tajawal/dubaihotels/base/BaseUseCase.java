@@ -9,6 +9,7 @@ import io.reactivex.schedulers.Schedulers;
 
 /**
  * <p>
+ * Abstract class for use case
  * each UseCase implementation will return the result using a {@link BaseFetchObserver}
  * that will execute its job in a background thread and will post the result in the UI thread.
  * <p>
