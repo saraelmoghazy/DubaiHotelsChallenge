@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">DubaiHotels</string>
+    <string name="app_name">Dubai Hotels</string>
+    <string name="no_connection_title">Ooops</string>
+    <string name="no_connection_description">Slow or no internet connection</string>
+    <string name="no_connection_description2">Please check your internet settings</string>
+    <string name="btn_retry">Try again</string>
 </resources>

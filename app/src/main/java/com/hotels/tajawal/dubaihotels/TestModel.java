@@ -1,0 +1,8 @@
+package com.hotels.tajawal.dubaihotels;
+
+/**
+ * Created by Sara Elmoghazy.
+ */
+
+public class TestModel {
+}

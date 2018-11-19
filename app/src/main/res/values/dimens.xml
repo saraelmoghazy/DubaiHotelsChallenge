@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="txt_header_large">20dp</dimen>
+    <dimen name="txt_header">18dp</dimen>
+    <dimen name="txt_body">16dp</dimen>
+    <dimen name="txt_body_small">14dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+</resources>
