@@ -93,13 +93,6 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
         this.mcontext = null;
     }
 
-    protected void navigateToNextActivity(Class activity) {
-        if (getmContext() != null) {
-            Intent intent = new Intent(getmContext(), activity);
-            startActivity(intent);
-        }
-    }
-
     protected abstract void onViewInflated(Bundle savedInstanceState, View rootView);
 
     protected void switchTheView() {
