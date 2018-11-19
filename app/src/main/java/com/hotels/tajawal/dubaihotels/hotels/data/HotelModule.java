@@ -1,5 +1,7 @@
 package com.hotels.tajawal.dubaihotels.hotels.data;
 
+import com.hotels.tajawal.dubaihotels.remote.RetrofitProvider;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -14,7 +16,7 @@ public class HotelModule {
 
     @Provides
     @Singleton
-    HotelDataSource provideHotelDataSource(Retrofit retrofit) {
-        return new HotelDataSource(retrofit);
+    HotelDataSource provideHotelDataSource(RetrofitProvider retrofitProvider) {
+        return new HotelDataSource(retrofitProvider);
     }
 }

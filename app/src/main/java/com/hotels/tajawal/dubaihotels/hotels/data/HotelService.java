@@ -10,7 +10,7 @@ import retrofit2.http.GET;
  */
 public interface HotelService {
 
-    @GET("/hotels")
+    @GET("https://testapi.io/api/a-manumohan/hotels")
     Observable<HotelResponse> getHotels();
 
 }

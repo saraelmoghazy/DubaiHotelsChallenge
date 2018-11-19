@@ -42,12 +42,23 @@ public class NetModule {
     }
 
     @Provides
-    public Retrofit provideRetrofit(OkHttpClient okHttpClient) {
+    public Retrofit provideBaseRetrofit(OkHttpClient okHttpClient) {
         Retrofit retrofit = new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create())
                 .baseUrl(mBaseUrl)
                 .client(okHttpClient)
                 .build();
         return retrofit;
+    }
+
+    @Provides
+    public RxErrorHandlingCallAdapterFactory provideRxErrorHandlerCallAdapter(Retrofit retrofit) {
+        return new RxErrorHandlingCallAdapterFactory(retrofit);
+    }
+
+    @Provides
+    public RetrofitProvider provideRetrofit(RxErrorHandlingCallAdapterFactory observableFactory,
+                                            Retrofit retrofit) {
+        return new RetrofitProvider(observableFactory, retrofit);
     }
 }

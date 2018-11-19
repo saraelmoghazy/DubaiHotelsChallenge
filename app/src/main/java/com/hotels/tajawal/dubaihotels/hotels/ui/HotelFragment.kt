@@ -43,7 +43,7 @@ class HotelFragment : BaseFragment<HotelsFragmentBinding, HotelViewModel>() {
 
     override fun onViewInflated(savedInstanceState: Bundle?, rootView: View?) {
         binding = viewDataBinding
-        binding.rvHotels.layoutManager = GridLayoutManager(this.getmContext(), 2)
+        binding.rvHotels.layoutManager = GridLayoutManager(this.context, 2)
         subscribeToHotelLiveData()
 
     }

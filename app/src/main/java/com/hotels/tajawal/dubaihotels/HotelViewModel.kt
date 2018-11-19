@@ -1,6 +1,5 @@
 package com.hotels.tajawal.dubaihotels
 
-import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import com.hotels.tajawal.dubaihotels.base.BaseFetchObserver
 import com.hotels.tajawal.dubaihotels.base.BaseViewModel
@@ -29,7 +28,7 @@ class HotelViewModel : BaseViewModel() {
     init {
         start()
         setIsLoading(true)
-        getHotelsUseCase.execute(hotelObserver)
+        getHotelsUseCase?.execute(hotelObserver)
     }
 
     fun getHotels() = hotelsLiveData

@@ -11,7 +11,7 @@ import retrofit2.Retrofit;
 public interface NetComponent {
     String BaseUrl = "https://testapi.io/api/a-manumohan/";
 
-    Retrofit getRetrofit();
+    RetrofitProvider getRetrofit();
 
     class Initializer {
 
