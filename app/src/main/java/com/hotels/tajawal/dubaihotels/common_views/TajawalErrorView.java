@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.hotels.tajawal.dubaihotels.R;
 
 /**
+ * Error view for retry failed network calls.
  * Created by Sara Elmoghazy.
  */
 public class TajawalErrorView extends ConstraintLayout {

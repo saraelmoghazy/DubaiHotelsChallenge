@@ -9,6 +9,7 @@ import com.hotels.tajawal.dubaihotels.hotels.model.Hotel
 import com.hotels.tajawal.dubaihotels.hotels.model.HotelResponse
 
 /**
+ * Shared view model between master/details.
  * Created by Sara Elmoghazy.
  */
 class HotelViewModel : BaseViewModel() {
@@ -30,6 +31,7 @@ class HotelViewModel : BaseViewModel() {
     init {
         start()
         setIsLoading(true)
+        //execute get hotels use case
         getHotelsUseCase.execute(hotelObserver)
     }
 
@@ -37,13 +39,26 @@ class HotelViewModel : BaseViewModel() {
 
     fun getSelectedHotelLiveData() = selectedHotelLiveData
 
+    /**
+     * handle hotel click in HotelsFragment
+     * @param url
+     * */
     fun onHotelSelected(hotel: Hotel) {
         selectedHotelLiveData.postValue(hotel)
     }
 
     fun getShowFullImageLiveData() = showFullImageLiveData
 
+    /**
+     * handle hotel image click in HotelDetailsFragment
+     * @param url
+     * */
     fun onHotelImageClicked(url: String) {
         showFullImageLiveData.postValue(url)
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        getHotelsUseCase.destroy()
     }
 }

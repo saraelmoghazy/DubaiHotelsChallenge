@@ -8,7 +8,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
- * Created by Sara Elmoghazy on 09,September,2018
+ * Created by Sara Elmoghazy.
  */
 @Singleton
 @Component(dependencies = {NetComponent.class}, modules = {HotelModule.class})

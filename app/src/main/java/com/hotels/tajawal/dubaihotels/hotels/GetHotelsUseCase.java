@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import io.reactivex.Observable;
 
 /**
+ * Get hotels use case
  * Created by Sara Elmoghazy.
  */
 public class GetHotelsUseCase extends BaseUseCase<HotelResponse> {

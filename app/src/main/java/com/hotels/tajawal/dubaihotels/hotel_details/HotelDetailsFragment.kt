@@ -15,7 +15,8 @@ import com.hotels.tajawal.dubaihotels.base.BaseFragment
 import com.hotels.tajawal.dubaihotels.databinding.HotelDetailsFragmentBinding
 
 /**
- * Created by Sara Elmoghazy on 20,November,2018
+ * Hotel Details fragment , show hotel details / hotel image in full screen
+ * Created by Sara Elmoghazy.
  */
 
 class HotelDetailsFragment : BaseFragment<HotelDetailsFragmentBinding, HotelViewModel>() {

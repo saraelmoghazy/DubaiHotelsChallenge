@@ -23,6 +23,8 @@ import com.hotels.tajawal.dubaihotels.remote.RetrofitException;
 import com.hotels.tajawal.dubaihotels.util.ViewAnimationUtilities;
 
 /**
+ * Base fragment for all fragments , centralize loading indicator , error handling and retry failed
+ * network calls.
  * Created by Sara Elmoghazy.
  */
 public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseViewModel>

@@ -16,6 +16,7 @@ import java.util.Map;
 import io.reactivex.disposables.CompositeDisposable;
 
 /**
+ * Base view model centralize execute failed use cases , error handling.
  * Created by Sara Elmoghazy.
  */
 public class BaseViewModel extends ViewModel {
@@ -69,7 +70,7 @@ public class BaseViewModel extends ViewModel {
     }
 
     /**
-     * Restart this presenter so this will restart all failed useCases.
+     * Restart this view model so this will restart all failed useCases.
      */
     public void restart() {
         setIsLoading(true);
@@ -107,7 +108,7 @@ public class BaseViewModel extends ViewModel {
 
 
     /**
-     * keeps reference of this useCase to reExecute it when presenter restarts.
+     * keeps reference of this useCase to reExecute it when view model restarts.
      *
      * @param id id of the failed useCase.
      */

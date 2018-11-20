@@ -17,9 +17,10 @@ import com.hotels.tajawal.dubaihotels.hotel_details.HotelDetailsFragment
 import com.hotels.tajawal.dubaihotels.hotels.model.Hotel
 
 /**
- * Created by Sara Elmoghazy on 19,November,2018
+ * Show hotels in grid layout.
+ * Created by Sara Elmoghazy.
  */
-class HotelFragment : BaseFragment<HotelsFragmentBinding, HotelViewModel>() {
+class HotelsFragment : BaseFragment<HotelsFragmentBinding, HotelViewModel>() {
 
     lateinit var hotelViewModel: HotelViewModel
 

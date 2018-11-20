@@ -8,7 +8,8 @@ import com.hotels.tajawal.dubaihotels.base.BaseViewHolder
 import com.hotels.tajawal.dubaihotels.hotels.model.Hotel
 
 /**
- * Created by Sara Elmoghazy on 19,November,2018
+ * Hotel adapter
+ * Created by Sara Elmoghazy.
  */
 class HotelAdapter(val hotels: List<Hotel>, private val clickListener: (Hotel) -> Unit) : BaseAdapter<Hotel, ViewDataBinding>() {
 

@@ -6,7 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import com.hotels.tajawal.dubaihotels.BR;
 
 /**
- * Created by Sara Elmoghazy on 12,September,2018
+ * Base view holder for all view holder, centralize data binding
+ * Created by Sara Elmoghazy.
  */
 public class BaseViewHolder<T, V extends ViewDataBinding> extends RecyclerView.ViewHolder {
     private final V binding;

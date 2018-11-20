@@ -8,13 +8,13 @@ import io.reactivex.Observable;
 import retrofit2.Retrofit;
 
 /**
- * Created by Sara Elmoghazy on 06,September,2018
+ * Hotel Data source
+ * Created by Sara Elmoghazy.
  */
 public class HotelDataSource extends BaseObservable<HotelResponse> {
 
     RetrofitProvider retrofitProvider;
     HotelService hotelService;
-
 
     public HotelDataSource(RetrofitProvider retrofitProvider) {
         this.retrofitProvider = retrofitProvider;

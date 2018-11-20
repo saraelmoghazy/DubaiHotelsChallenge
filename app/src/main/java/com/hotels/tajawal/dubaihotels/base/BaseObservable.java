@@ -6,6 +6,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
 
 /**
+ * Base Observables for all observables , centralize subscribeOn / observeOn threads
  * @author Sara Elmoghazy
  */
 public class BaseObservable<M> {

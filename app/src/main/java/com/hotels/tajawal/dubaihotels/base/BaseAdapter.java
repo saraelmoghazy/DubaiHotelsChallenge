@@ -7,7 +7,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
-
+/**
+ * Base Adapter for all adapter views, , centralize view holder {@link BaseViewHolder}.
+ * Created by Sara Elmoghazy.
+ */
 public abstract class BaseAdapter<T, V extends ViewDataBinding>
         extends RecyclerView.Adapter<BaseViewHolder<T, V>> {
 
