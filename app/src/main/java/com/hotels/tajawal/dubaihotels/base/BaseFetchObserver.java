@@ -36,6 +36,7 @@ public abstract class BaseFetchObserver<M> implements Observer<M> {
 
     @Override
     public void onNext(@io.reactivex.annotations.NonNull M m) {
+
         baseViewModel.get().doOnNext();
     }
 

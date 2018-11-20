@@ -21,14 +21,14 @@ class HotelViewModel : BaseViewModel() {
         override fun onNext(m: HotelResponse) {
             super.onNext(m)
             setIsLoading(false)
-            hotelsLiveData.postValue(m.hotels)
+            hotelsLiveData.postValue(m.hotel)
         }
     }
 
     init {
         start()
         setIsLoading(true)
-        getHotelsUseCase?.execute(hotelObserver)
+        getHotelsUseCase.execute(hotelObserver)
     }
 
     fun getHotels() = hotelsLiveData

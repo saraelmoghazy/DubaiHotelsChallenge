@@ -9,14 +9,14 @@ import java.util.List;
 public class HotelResponse {
 
     @Expose
-    private List<Hotel> hotels;
+    private List<Hotel> hotel;
 
-    public List<Hotel> getHotels() {
-        return hotels;
+    public List<Hotel> getHotel() {
+        return hotel;
     }
 
-    public void setHotels(List<Hotel> hotel) {
-        this.hotels = hotel;
+    public void setHotel(List<Hotel> hotel) {
+        this.hotel = hotel;
     }
 
 }
