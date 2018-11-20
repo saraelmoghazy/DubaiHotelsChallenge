@@ -1,9 +1,13 @@
 package com.hotels.tajawal.dubaihotels.hotel_details
 
+import android.app.Dialog
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.widget.NestedScrollView
 import android.view.View
+import android.widget.ImageView
+import com.bumptech.glide.Glide
 import com.hotels.tajawal.dubaihotels.BR
 import com.hotels.tajawal.dubaihotels.HotelViewModel
 import com.hotels.tajawal.dubaihotels.R
@@ -19,6 +23,7 @@ class HotelDetailsFragment : BaseFragment<HotelDetailsFragmentBinding, HotelView
     lateinit var hotelViewModel: HotelViewModel
 
     lateinit var binding: HotelDetailsFragmentBinding
+
 
     override fun getScrollView(): NestedScrollView {
         return binding.scrollView
@@ -41,5 +46,28 @@ class HotelDetailsFragment : BaseFragment<HotelDetailsFragmentBinding, HotelView
 
     override fun onViewInflated(savedInstanceState: Bundle?, rootView: View?) {
         binding = viewDataBinding
+        subscribeTShowFullImageLiveData()
+    }
+
+    private fun subscribeTShowFullImageLiveData() {
+        viewModel.getShowFullImageLiveData().observe(this, Observer<String> { url ->
+            showImageFullScreen(url)
+        })
+    }
+
+    fun showImageFullScreen(url: String?) {
+        if (url != null) {
+            var imageDialog = Dialog(this.getmContext(), R.style.DialogFullscreen)
+            imageDialog.setContentView(R.layout.hotel_full_screen)
+            var icHotel: ImageView = imageDialog.findViewById(R.id.icHotel)
+            Glide.with(icHotel.context).load(url).into(icHotel)
+            imageDialog.setCancelable(false)
+            imageDialog.show()
+            icHotel.setOnClickListener { v ->
+                imageDialog.hide()
+                viewModel.getShowFullImageLiveData().postValue(null)
+            }
+        }
+
     }
 }

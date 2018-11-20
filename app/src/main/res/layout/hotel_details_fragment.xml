@@ -25,11 +25,14 @@
                 android:id="@+id/cartName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="18dp"
                 android:layout_marginTop="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline6"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="@+id/guideline4"
-                app:layout_constraintTop_toBottomOf="@+id/icHotel">
+                app:layout_constraintTop_toBottomOf="@+id/icHotel"
+                app:layout_constraintVertical_bias="0.0">
 
                 <android.support.constraint.ConstraintLayout
                     android:layout_width="match_parent"
@@ -52,10 +55,10 @@
                         android:id="@+id/txtAddress"
                         style="@style/HotelDetailsAddress"
                         android:layout_marginTop="10dp"
+                        android:text="@{viewModel.selectedHotelLiveData.location.address}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtName"
-                        tools:text="Burj Nahar Roundabout, Naif Road"
-                        android:text="@{viewModel.selectedHotelLiveData.location.address}"/>
+                        tools:text="Burj Nahar Roundabout, Naif Road" />
 
                     <TextView
                         android:id="@+id/textView"
@@ -131,14 +134,14 @@
 
             <ImageView
                 android:id="@+id/icHotel"
+                imageUrl="@{viewModel.selectedHotelLiveData.image[0].url}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:onClick="@{() -> viewModel.onHotelImageClicked(viewModel.selectedHotelLiveData.image[0].url)}"
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                imageUrl="@{viewModel.selectedHotelLiveData.image[0].url}"
-               />
+                app:layout_constraintTop_toTopOf="parent" />
 
 
         </android.support.constraint.ConstraintLayout>
