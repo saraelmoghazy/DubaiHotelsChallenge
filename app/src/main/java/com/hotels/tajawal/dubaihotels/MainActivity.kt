@@ -8,13 +8,16 @@ import com.hotels.tajawal.dubaihotels.hotels.ui.HotelsFragment
 
 
 class MainActivity : AppCompatActivity() {
+    lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var toolbar = findViewById<Toolbar>(R.id.toolbar)
+        toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
+        setupToolbarNavigation()
         replaceFragment(R.id.fragment_container, ::HotelsFragment)
+
     }
 
     inline fun replaceFragment(containerViewId: Int, f: () -> Fragment): Fragment? {
@@ -32,5 +35,19 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.popBackStack()
         else
             super.onBackPressed()
+    }
+
+    private val onFragmentManagerBackstackChanged = {
+        if (supportFragmentManager.backStackEntryCount > 0) {
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            toolbar.setNavigationOnClickListener { view -> onBackPressed() }
+        } else {
+            supportActionBar?.setDisplayHomeAsUpEnabled(false)
+        }
+    }
+
+    fun setupToolbarNavigation() {
+        supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24px)
+        supportFragmentManager?.addOnBackStackChangedListener { onFragmentManagerBackstackChanged() }
     }
 }
