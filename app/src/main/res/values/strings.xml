@@ -4,4 +4,6 @@
     <string name="no_connection_description">Slow or no internet connection</string>
     <string name="no_connection_description2">Please check your internet settings</string>
     <string name="btn_retry">Try again</string>
+    <string name="high_rate">High Rate</string>
+    <string name="low_rate">Low Rate</string>
 </resources>
