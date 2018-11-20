@@ -16,6 +16,7 @@ class HotelViewModel : BaseViewModel() {
     @UseCase(R.id.getHotels)
     private val getHotelsUseCase = GetHotelsUseCase()
     private val hotelsLiveData: MutableLiveData<List<Hotel>> = MutableLiveData()
+    private val selectedHotelLiveData: MutableLiveData<Hotel> = MutableLiveData()
     private val hotelObserver = object :
             BaseFetchObserver<HotelResponse>(this, R.id.getHotels) {
         override fun onNext(m: HotelResponse) {
@@ -32,4 +33,10 @@ class HotelViewModel : BaseViewModel() {
     }
 
     fun getHotels() = hotelsLiveData
+
+    fun getSelectedHotelLiveData() = selectedHotelLiveData
+
+    fun onHotelSelected(hotel: Hotel) {
+        selectedHotelLiveData.postValue(hotel)
+    }
 }

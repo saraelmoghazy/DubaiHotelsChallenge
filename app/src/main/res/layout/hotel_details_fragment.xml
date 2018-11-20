@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.enhance.joi.product_details.ProductDetailsViewModel" />
+            type="com.hotels.tajawal.dubaihotels.HotelViewModel" />
     </data>
 
     <android.support.v4.widget.NestedScrollView
@@ -43,7 +43,7 @@
                     <TextView
                         android:id="@+id/txtName"
                         style="@style/hotelDetailsName"
-
+                        android:text="@{viewModel.selectedHotelLiveData.summary.hotelName}"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         tools:text="Coral Oriental Dubai" />
@@ -52,10 +52,10 @@
                         android:id="@+id/txtAddress"
                         style="@style/HotelDetailsAddress"
                         android:layout_marginTop="10dp"
-
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/txtName"
-                        tools:text="Burj Nahar Roundabout, Naif Road" />
+                        tools:text="Burj Nahar Roundabout, Naif Road"
+                        android:text="@{viewModel.selectedHotelLiveData.location.address}"/>
 
                     <TextView
                         android:id="@+id/textView"
@@ -86,6 +86,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginTop="8dp"
+                        android:text="@{Double.toString(viewModel.selectedHotelLiveData.summary.highRate)}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toStartOf="@+id/textView4"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -100,6 +101,7 @@
                         android:layout_marginBottom="8dp"
                         android:layout_marginEnd="8dp"
                         android:layout_marginTop="8dp"
+                        android:text="@{Double.toString(viewModel.selectedHotelLiveData.summary.lowRate)}"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.5"
@@ -134,7 +136,9 @@
                 android:scaleType="fitXY"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                imageUrl="@{viewModel.selectedHotelLiveData.image[0].url}"
+               />
 
 
         </android.support.constraint.ConstraintLayout>

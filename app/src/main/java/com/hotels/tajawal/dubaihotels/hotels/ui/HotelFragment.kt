@@ -9,9 +9,11 @@ import android.view.View
 import android.widget.Toast
 import com.hotels.tajawal.dubaihotels.BR
 import com.hotels.tajawal.dubaihotels.HotelViewModel
+import com.hotels.tajawal.dubaihotels.MainActivity
 import com.hotels.tajawal.dubaihotels.R
 import com.hotels.tajawal.dubaihotels.base.BaseFragment
 import com.hotels.tajawal.dubaihotels.databinding.HotelsFragmentBinding
+import com.hotels.tajawal.dubaihotels.hotel_details.HotelDetailsFragment
 import com.hotels.tajawal.dubaihotels.hotels.model.Hotel
 
 /**
@@ -19,9 +21,7 @@ import com.hotels.tajawal.dubaihotels.hotels.model.Hotel
  */
 class HotelFragment : BaseFragment<HotelsFragmentBinding, HotelViewModel>() {
 
-    val hotelViewModel: HotelViewModel by lazy {
-        ViewModelProviders.of(this).get(HotelViewModel::class.java)
-    }
+    lateinit var hotelViewModel: HotelViewModel
 
     lateinit var binding: HotelsFragmentBinding
 
@@ -38,25 +38,34 @@ class HotelFragment : BaseFragment<HotelsFragmentBinding, HotelViewModel>() {
     }
 
     override fun getViewModel(): HotelViewModel {
+        hotelViewModel = activity?.run {
+            ViewModelProviders.of(this).get(HotelViewModel::class.java)
+        } ?: throw Exception("Invalid Activity")
         return hotelViewModel
     }
 
     override fun onViewInflated(savedInstanceState: Bundle?, rootView: View?) {
         binding = viewDataBinding
         binding.rvHotels.layoutManager = GridLayoutManager(this.context, 2)
-        subscribeToHotelLiveData()
+        subscribeToHotelsLiveData()
 
     }
 
-    private fun subscribeToHotelLiveData() {
+    private fun subscribeToHotelsLiveData() {
         viewModel.getHotels().observe(this, Observer<List<Hotel>> { hotels ->
             var hotelAdapter = HotelAdapter(hotels
-                    ?: ArrayList<Hotel>(), { hotel -> hotelItemClicked(hotel) })
+                    ?: ArrayList<Hotel>(), { hotel -> onHotelItemClicked(hotel) })
             binding.rvHotels.adapter = hotelAdapter
         })
     }
 
-    fun hotelItemClicked(hotel: Hotel) {
-        Toast.makeText(this.getmContext(), "Clicked: ${hotel.summary.hotelName}", Toast.LENGTH_LONG).show()
+    fun onHotelItemClicked(hotel: Hotel) {
+        viewModel.onHotelSelected(hotel)
+        navigateToHotelDetails()
+
+    }
+
+    fun navigateToHotelDetails() {
+        (activity as MainActivity).replaceFragment(R.id.fragment_container, ::HotelDetailsFragment)
     }
 }

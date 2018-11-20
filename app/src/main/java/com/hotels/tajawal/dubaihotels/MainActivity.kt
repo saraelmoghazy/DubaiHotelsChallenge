@@ -17,7 +17,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    inline fun FragmentActivity.replaceFragment(containerViewId: Int, f: () -> Fragment): Fragment? {
+    inline fun replaceFragment(containerViewId: Int, f: () -> Fragment): Fragment? {
         return f().apply { supportFragmentManager?.beginTransaction()?.replace(containerViewId, this)?.commit() }
     }
+
+    fun doNothing() {}
+
 }
