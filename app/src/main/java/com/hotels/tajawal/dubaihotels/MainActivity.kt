@@ -2,10 +2,9 @@ package com.hotels.tajawal.dubaihotels
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
-import com.hotels.tajawal.dubaihotels.hotels.ui.HotelFragment
+import com.hotels.tajawal.dubaihotels.hotels.ui.HotelsFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -15,12 +14,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        replaceFragment(R.id.fragment_container, ::HotelFragment)
+        replaceFragment(R.id.fragment_container, ::HotelsFragment)
     }
 
     inline fun replaceFragment(containerViewId: Int, f: () -> Fragment): Fragment? {
         return f().apply {
-            if (this !is HotelFragment)
+            if (this !is HotelsFragment)
                 supportFragmentManager?.beginTransaction()?.replace(containerViewId, this)?.addToBackStack(this.tag)
                         ?.commit()
             else
